@@ -1128,8 +1128,7 @@ function goToVerse(n, source) {
   setTimeout(() => {
     let target = null;
     document.querySelectorAll('.verse').forEach(el => {
-      const num = el.querySelector('.v-num');
-      if (num && num.textContent.includes('\u2726 ' + n)) target = el;
+      if (parseInt(el.dataset.n) === parseInt(n)) target = el;
     });
     if (!target) return;
     const chBody = target.closest('.ch-body');
