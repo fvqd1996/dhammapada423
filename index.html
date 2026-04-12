@@ -47,6 +47,16 @@
 
 <!-- Favicon (Dharma Wheel) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☸</text></svg>">
+<!-- PWA / Add to Home Screen -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dhammapada">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#1a1410">
+<meta name="application-name" content="Dhammapada 423">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231a1410'/><text x='50' y='62' text-anchor='middle' font-size='50' fill='%23c9a84c'>☸</text></svg>">
+<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiRGhhbW1hcGFkYSDigJQgQ29tcGxldGUgVHJpbGluZ3VhbCBFZGl0aW9uIiwic2hvcnRfbmFtZSI6IkRoYW1tYXBhZGEiLCJzdGFydF91cmwiOiIvIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzFhMTQxMCIsInRoZW1lX2NvbG9yIjoiIzFhMTQxMCIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWwsPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMDAgMTAwJz48cmVjdCB3aWR0aD0nMTAwJyBoZWlnaHQ9JzEwMCcgZmlsbD0nJTIzMWExNDEwJy8+PHRleHQgeD0nNTAnIHk9JzYyJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmb250LXNpemU9JzUwJyBmaWxsPSclMjNjOWE4NGMnPuKYuDwvdGV4dD48L3N2Zz4iLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
+
 
 <!-- Structured Data (JSON-LD) -->
 <script type="application/ld+json">
@@ -265,14 +275,7 @@ footer{background:var(--ink);text-align:center;padding:52px 24px;color:#8a7a60;f
   .v-text,.v-text-vn{max-width:100%}
   body.mode-en .v-en,body.mode-vn .v-vn,body.mode-pali .v-pali{padding:20px 24px}
 }
-@media(max-width:700px){
-  .nav-title,.nav-sep{display:none}
-  .nav-inner{flex-wrap:wrap;gap:8px}
-  .search-box{width:130px}
-  .nav-select{width:180px}
-  .ch-header{padding:24px 44px 20px 18px}
-  .ch-meta{right:12px}
-}
+/* mobile nav: see consolidated mobile CSS below */
 
 /* READING PROGRESS */
 #progress{position:fixed;top:0;left:0;height:2.5px;background:linear-gradient(90deg,var(--gold),var(--gold-light));z-index:999;transition:width .1s;width:0}
@@ -435,13 +438,7 @@ body.contemplation .ch-complete-badge{display:none !important}
 body.contemplation #zen-exit{display:block}
 
 /* ── RESPONSIVE ── */
-@media(max-width:960px){
-  #reading-stats{bottom:14px;left:14px}
-  .rs-pill{padding:5px 12px;font-size:.48rem}
-}
-@media(max-width:700px){
-  #reading-stats .rs-pill{border-radius:16px;padding:4px 10px}
-}
+/* reading stats mobile: see consolidated mobile CSS below */
 
 /* ── DARK MODE ADDITIONS ── */
 body.theme-dark .rs-pill{background:rgba(18,16,16,.9)}
@@ -462,10 +459,7 @@ body.theme-dark .vn-note{color:#7a6a48}
 .sf-btn:disabled{opacity:.2;cursor:default}
 .sf-close{background:transparent;border:none;color:var(--gold);opacity:.4;font-size:.9rem;cursor:pointer;padding:2px 6px;transition:opacity .15s}
 .sf-close:hover{opacity:.8}
-@media(max-width:700px){
-  #search-float{left:8px;right:8px;transform:none;padding:5px 10px;gap:6px}
-  .sf-info{display:none}
-}
+/* search float mobile: see consolidated mobile CSS below */
 
 /* ── RESUME READING BANNER ── */
 #resume-banner{display:none;background:linear-gradient(135deg,var(--ink) 0%,#2a1f14 100%);padding:14px 24px;text-align:center;border-bottom:1px solid rgba(201,168,76,.15);animation:fu .5s ease}
@@ -521,6 +515,91 @@ body.theme-dark .vn-note{color:#7a6a48}
 .prayer-done:hover{background:rgba(201,168,76,.1)}
 
 .prayer-counter{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.15em;color:var(--gold);opacity:.35;margin-top:1.2rem}
+
+/* ── TABLET (max 960px) ── */
+@media(max-width:960px){
+  .toolbar{gap:4px}
+  .tool-btn{font-size:.52rem;padding:3px 8px}
+  .font-controls{gap:3px}
+  .font-slider{width:50px}
+}
+
+/* ── MOBILE (max 700px) ── */
+@media(max-width:700px){
+  /* Nav: compact two-row layout */
+  .nav-inner{flex-wrap:wrap;gap:4px;padding:0 8px}
+  .nav-title,.nav-sep{display:none}
+  .nav-select{width:auto;flex:1;min-width:120px;font-size:.78rem;padding:3px 6px}
+  .search-box{width:auto;flex:1;min-width:100px;font-size:.78rem;padding:4px 8px}
+  .goto-input{width:36px;font-size:.72rem;padding:3px 4px}
+  .expand-btn{font-size:.5rem;padding:3px 8px;letter-spacing:.08em}
+  
+  /* Language buttons: smaller */
+  .lang-toggle{gap:2px}
+  .lang-btn{font-size:.48rem;padding:3px 6px;letter-spacing:.06em}
+  
+  /* Toolbar: compact single row */
+  .toolbar{gap:2px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .toolbar::-webkit-scrollbar{display:none}
+  .tool-btn{font-size:.48rem;padding:3px 7px;white-space:nowrap;letter-spacing:.06em}
+  .font-controls{gap:2px}
+  .font-slider{width:40px}
+  .font-sm,.font-lg{font-size:.55rem}
+  
+  /* Chapter headers */
+  .ch-header{padding:20px 40px 18px 14px}
+  .ch-name-en{font-size:clamp(.85rem,3vw,1.1rem)}
+  .ch-name-vn{font-size:.7rem}
+  .ch-meta{right:10px;font-size:.42rem}
+  
+  /* Reading stats: don't overlap content */
+  #reading-stats{bottom:8px;left:8px}
+  .rs-pill{padding:4px 9px;font-size:.42rem;max-width:160px}
+  .rs-bloom{font-size:.7rem}
+  
+  /* Back to top button: smaller */
+  #btt{width:36px;height:36px;font-size:.75rem;bottom:12px;right:12px}
+  
+  /* Verses: tighter padding on mobile */
+  .v-en{padding:16px 16px 16px 28px}
+  .v-vn{padding:14px 16px}
+  .v-pali{padding:12px 16px}
+  .v-num{font-size:.48rem}
+  .v-text{font-size:.95rem}
+  .v-text-vn{font-size:.9rem}
+  .v-text-pali{font-size:.82rem}
+  
+  /* Verse actions: smaller */
+  .verse-actions{top:4px;right:4px;gap:2px}
+  .va-btn{width:26px;height:26px;font-size:.6rem}
+  
+  /* Footer */
+  footer{padding:36px 16px}
+  
+  /* Prayer modal */
+  .prayer-card{padding:32px 24px}
+  .prayer-text{font-size:.95rem}
+  .prayer-text-vn{font-size:.88rem}
+  
+  /* Search float */
+  #search-float{top:auto;bottom:50px;left:8px;right:8px;transform:none}
+  
+  /* Intro */
+  .intro-sec{padding:36px 16px}
+  .intro-en{font-size:.92rem}
+  .intro-vn{font-size:.88rem}
+}
+
+/* ── SMALL PHONES (max 380px) ── */
+@media(max-width:380px){
+  .nav-select{min-width:90px}
+  .search-box{min-width:80px}
+  .lang-btn{font-size:.42rem;padding:2px 5px}
+  .tool-btn{font-size:.42rem;padding:2px 5px}
+  .expand-btn{display:none}
+  .v-text{font-size:.88rem}
+}
+
 </style>
 
 </head>
