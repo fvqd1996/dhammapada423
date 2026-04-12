@@ -1,5 +1,1 @@
-# Redirect phapcu.com to primary domain
-https://phapcu.com/* https://dhammapada423.com/:splat 301!
-http://phapcu.com/* https://dhammapada423.com/:splat 301!
-https://www.phapcu.com/* https://dhammapada423.com/:splat 301!
-https://www.dhammapada423.com/* https://dhammapada423.com/:splat 301!
+/* / 200
