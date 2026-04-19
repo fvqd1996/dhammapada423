@@ -1502,6 +1502,7 @@ function openPrayer() {
   document.getElementById('prayerOverlay').classList.add('show');
   document.body.style.overflow = 'hidden';
   fetchCounters();
+  try{if(parseInt(localStorage.getItem('dp-prayers')||'0')>0){document.getElementById('taraGate').style.display='block';document.getElementById('taraGate').style.opacity='1';}}catch(e){}
 }
 function closePrayer() {
   document.getElementById('prayerOverlay').classList.remove('show');
@@ -1649,7 +1650,7 @@ setTimeout(() => {
     <p class="prayer-note">No donation is asked for. Just a prayer.</p>
     <div class="prayer-counter" id="prayerCounter"></div>
     <button class="prayer-done" onclick="recordPrayer()">🙏 &nbsp; I have offered my prayer</button>
-    <div id="taraGate" style="display:none;text-align:center;margin-top:16px;opacity:0;transition:opacity 2s ease"><a href="/tara/" style="text-decoration:none;color:#2a6e4a;font-size:.7rem;letter-spacing:.15em;opacity:.4;transition:opacity .5s" onmouseenter="this.style.opacity='.8'" onmouseleave="this.style.opacity='.4'">༄</a></div>
+    <div id="taraGate" style="display:none;text-align:center;margin-top:16px;opacity:0;transition:opacity 2s ease"><a href="/tara/" style="text-decoration:none;color:#2a6e4a;font-size:1.1rem;letter-spacing:.15em;opacity:.4;transition:opacity .5s" onmouseenter="this.style.opacity='.8'" onmouseleave="this.style.opacity='.4'">༄</a></div>
   </div>
 </div>
 </body>
